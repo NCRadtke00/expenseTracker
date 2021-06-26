@@ -1,5 +1,5 @@
 import Expenses from "./components/Expenses/Expenses"
-
+import NewExpense from "./components/NewExpense/NewExpense"
 const App = () => {
   const expenses = [
     {
@@ -15,8 +15,18 @@ const App = () => {
       id: 'e4', title: 'New Desk (Wooden)', amount: 434.67, date: new Date(2021, 5, 12),
     },
   ]; //this is props concept, super important. props = properties that we set. we want to store data here so components can be completely reuseable 
+  
+  //old way of doing react projects 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+  
   return (
     <div className="App">
+      <NewExpense/>
       <Expenses items={expenses}/>
     </div>
   );
