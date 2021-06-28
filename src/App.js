@@ -15,7 +15,10 @@ const App = () => {
       id: 'e4', title: 'New Desk (Wooden)', amount: 434.67, date: new Date(2021, 5, 12),
     },
   ]; //this is props concept, super important. props = properties that we set. we want to store data here so components can be completely reuseable 
-  
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  }
   //old way of doing react projects 
   // return React.createElement(
   //   'div',
@@ -26,7 +29,7 @@ const App = () => {
   
   return (
     <div className="App">
-      <NewExpense/>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
       <Expenses items={expenses}/>
     </div>
   );

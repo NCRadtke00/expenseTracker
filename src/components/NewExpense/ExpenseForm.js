@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-function ExpenseForm() {
+const ExpenseForm = (props) => {
     //either way works for managing state but doing it in one can be error prone.
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
@@ -11,7 +11,7 @@ function ExpenseForm() {
     //         enteredAmount:'',
     //         enteredDate:'',
     //     })
- 
+
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
 
@@ -37,8 +37,8 @@ function ExpenseForm() {
         //     ...userInput,
         //     enteredDate: event.target.value,
         // })
-    };  
-     //Two-Way Binding Form
+    };
+    //Two-Way Binding Form
     const submitHandler = (event) => {
         event.preventDefault();
         const expenseData = {
@@ -46,7 +46,7 @@ function ExpenseForm() {
             amount: enteredAmount,
             date: new Date(enteredDate)
         };
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
