@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
 //created controlled component meaning its passes on to parent component
@@ -24,6 +25,7 @@ const Expenses = (props) => {
         <div>
             <Card className="expenses">
                 <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+                <ExpensesChart expenses={filteredExpenses}/>
                 <ExpensesList items={filteredExpenses} />
             </Card>
         </div>
